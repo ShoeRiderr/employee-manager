@@ -74,23 +74,23 @@ class EmployeeController extends Controller
         return $this->rediretWithMessage($result, 'update', Employee::class, route('employees.index'));
     }
 
-    public function restore(Employee $emloyee)
+    public function restore(Employee $employee)
     {
-        $result = $this->employeeService->restore($emloyee);
+        $result = $this->employeeService->restore($employee);
 
         return $this->rediretWithMessage($result, 'restore', Employee::class, route('employees.index'));
     }
 
-    public function archive(Employee $emloyee)
+    public function archive(Employee $employee)
     {
-        $result = $this->employeeService->archive($emloyee);
+        $result = $this->employeeService->archive($employee);
 
         return $this->rediretWithMessage($result, 'archive', Employee::class, route('employees.index'));
     }
 
-    public function destroy(Employee $emloyee)
+    public function destroy(Employee $employee)
     {
-        $result = $this->employeeService->delete($emloyee);
+        $result = $this->employeeService->delete($employee);
 
         return $this->rediretWithMessage($result, 'destroy', Employee::class, route('employees.index'));
     }

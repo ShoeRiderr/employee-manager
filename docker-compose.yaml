@@ -21,6 +21,8 @@ services:
       - ./:/var/www/html:delegated
   mysql:
     image: mysql
+    volumes:
+        - ./docker/provision/mysql/init:/docker-initdb.d
     env_file:
       - ./env/mysql.env
     ports:
@@ -43,5 +45,7 @@ services:
     working_dir: /var/www/html
     entrypoint: ['npm']
     profiles: ["npm"]
+    ports:
+      - '5173:5173'
     volumes:
       - ./:/var/www/html

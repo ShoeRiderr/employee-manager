@@ -24,5 +24,5 @@ Route::resource('employees', EmployeeController::class, [
 
 Route::group(['prefix' => 'employees'], function () {
     Route::patch('{employee}/archive', [EmployeeController::class, 'archive'])->name('employees.archive');
-    Route::patch('{employee}/restore', [EmployeeController::class, 'restore'])->name('employees.restore');
+    Route::patch('{employee}/restore', [EmployeeController::class, 'restore'])->withTrashed()->name('employees.restore');
 });

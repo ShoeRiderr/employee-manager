@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateRequest extends FormRequest
 {
+    protected $redirectRoute  = 'employees.create';
+
     /**
      * Determine if the user is authorized to make this request.
      */

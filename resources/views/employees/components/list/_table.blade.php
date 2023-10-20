@@ -37,7 +37,10 @@
                     <td>{{ $employee->email }}</td>
                     <td>{{ $employee->first_name }}</td>
                     <td>{{ $employee->last_name }}</td>
-                    <td>{{ implode(', ', $employee->phone_numbers) }}</td>
+
+                    <td>
+                        {{ implode(', ', $employee->phone_numbers) }}
+                    </td>
                     <td>
                         <div class="d-flex">
                             <a class="btn btn-outline-primary"

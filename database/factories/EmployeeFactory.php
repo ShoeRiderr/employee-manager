@@ -30,7 +30,7 @@ class EmployeeFactory extends Factory
             'email' => fake()->email(),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
-            'phone_numbers' => json_encode($phoneNumbers),
+            'phone_numbers' => $phoneNumbers,
         ];
     }
 }

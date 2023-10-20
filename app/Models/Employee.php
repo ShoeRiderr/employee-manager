@@ -24,7 +24,7 @@ class Employee extends Model
     ];
 
     protected $casts = [
-        'phone_numbers' => 'json',
+        'phone_numbers' => 'array',
     ];
 
     public function company(): BelongsTo

@@ -1,5 +1,5 @@
-@isset($message)
-    <div class="alert @isset($alertClass) alert-primary @endisset" role="alert">
+@if ($message)
+    <div class="alert alert-primary {{ $alertClass }}" role="alert">
         {{ $message }}
     </div>
-@endisset
+@endif
