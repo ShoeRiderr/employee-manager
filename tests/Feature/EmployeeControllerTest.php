@@ -17,10 +17,18 @@ class EmployeeControllerTest extends TestCase
     {
         parent::setUp();
 
-        Employee::factory(20);
+        Employee::factory(20)->create();
     }
 
-    public function test_employee_index_view(): void
+    public function test_employee_index_view_without_any_parameters(): void
+    {
+        $response = $this->get('/employees');
+
+        $response->assertStatus(Response::HTTP_OK);
+        $this->assertInstanceOf(Paginator::class, $response->viewData('employees'));
+    }
+
+    public function test_employee_index_view_filter_by_name(): void
     {
         $response = $this->get('/employees');
 

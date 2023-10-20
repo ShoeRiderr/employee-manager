@@ -15,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('employees.index'));
 });
 
 Route::resource('employees', EmployeeController::class, [
     'except' => ['show']
 ]);
+
+Route::group(['prefix' => 'employees'], function () {
+    Route::patch('{employee}/archive', [EmployeeController::class, 'archive'])->name('employees.archive');
+    Route::patch('{employee}/restore', [EmployeeController::class, 'restore'])->name('employees.restore');
+});

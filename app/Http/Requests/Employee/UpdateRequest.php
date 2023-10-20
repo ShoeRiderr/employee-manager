@@ -24,11 +24,11 @@ class UpdateRequest extends FormRequest
         return [
             'company_id' => ['required', 'exists:companies,id'],
             'food_preference_id' => ['required', 'exists:food_preferences,id'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email,'.$this->employee],
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'phone_numbers' => ['required', 'array'],
-            'phone_numbers.*' => ['required', 'integer'],
+            'phone_numbers.*' => ['required'],
         ];
     }
 }

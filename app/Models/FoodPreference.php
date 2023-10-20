@@ -4,8 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FoodPreference extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    public array $fillables = [
+        'name'
+    ];
+
+    public function employees(): HasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
 }

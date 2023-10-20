@@ -11,12 +11,16 @@ class Employee extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillables = [
+    public array $fillables = [
         'company_id',
         'food_preference_id',
         'first_name',
         'last_name',
         'phone_numbers',
+    ];
+
+    protected $casts = [
+        'phone_numbers' => 'array',
     ];
 
     public function company(): BelongsTo
