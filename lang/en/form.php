@@ -8,4 +8,5 @@ return [
     'filter' => 'Filter',
     'add' => 'Add new',
     'actions' => 'Action',
+    'back' => '<- Back',
 ];

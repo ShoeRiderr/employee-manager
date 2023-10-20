@@ -2,9 +2,14 @@
     @vite('resources/js/employees/app.js')
 @endpush
 
+<div class="mb-4">
+    <a href="{{route('employees.index')}}" class="text-decoration-none text-dark">
+        <strong>@lang('form.back')</strong>
+    </a>
+</div>
+
 <form action="{{ $action }}" method="POST">
     @csrf
-
     @isset($method)
         <input type="hidden" name="_method" value="{{ $method }}">
     @endisset
