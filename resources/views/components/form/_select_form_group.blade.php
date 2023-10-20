@@ -1,9 +1,10 @@
 <div class="form-group mb-2">
     <label for="">{{ $label }}</label>
-    <select id="{{ $name }}" name="{{ $name }}" class="form-control @error($name) border-danger @enderror">
+    <select id="{{ $name }}" name="{{ $name }}" class="form-control @error($name) border-danger @enderror"
+        @if (isset($required) && $required) required @endif>
         <option value="" default></option>
         @foreach ($values as $value)
-            <option value="{{ $value->id }}" @if ($checkedValue === $value->id) selected @endif>
+            <option value="{{ $value->id }}" @if ($checkedValue == $value->id) selected @endif>
                 {{ $value->name }}
             </option>
         @endforeach

@@ -45,7 +45,7 @@ class EmployeeController extends Controller
     {
         return view('employees.create', [
             'companies' => $this->companyService->getAll(),
-            'food_preferences' => $this->foodPreferenceService->getAll(),
+            'foodPreferences' => $this->foodPreferenceService->getAll(),
         ]);
     }
 
@@ -67,9 +67,9 @@ class EmployeeController extends Controller
         ]);
     }
 
-    public function update(Employee $emloyee, UpdateRequest $request)
+    public function update(Employee $employee, UpdateRequest $request)
     {
-        $result = $this->employeeService->update($emloyee, $request->validated());
+        $result = $this->employeeService->update($employee, $request->validated());
 
         return $this->rediretWithMessage($result, 'update', Employee::class, route('employees.index'));
     }

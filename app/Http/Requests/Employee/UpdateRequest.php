@@ -22,9 +22,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company_id' => ['required', 'exists:companies,id'],
-            'food_preference_id' => ['required', 'exists:food_preferences,id'],
-            'email' => ['required', 'email', 'unique:users,email,'.$this->employee],
+            'company_id' => ['required', 'exists:App\Models\Company,id'],
+            'food_preference_id' => ['required', 'exists:App\Models\Employee,id'],
+            'email' => ['required', 'email', 'unique:App\Models\Employee,email,'.$this->employee->id],
             'first_name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'phone_numbers' => ['required', 'array'],

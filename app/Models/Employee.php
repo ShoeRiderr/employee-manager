@@ -6,21 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Kyslik\ColumnSortable\Sortable;
 
 class Employee extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Sortable;
 
-    public array $fillables = [
+	public $sortable = ['first_name', 'last_name', 'email'];
+
+    protected $fillable = [
         'company_id',
         'food_preference_id',
+        'email',
         'first_name',
         'last_name',
         'phone_numbers',
     ];
 
     protected $casts = [
-        'phone_numbers' => 'array',
+        'phone_numbers' => 'json',
     ];
 
     public function company(): BelongsTo

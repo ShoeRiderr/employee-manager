@@ -42,7 +42,7 @@
         'value' => isset($employee) ? $employee->last_name : '',
     ])
 
-    @include('components.form._phone_num_list', [
+    @include('employees.components.form._phone_num_list', [
         'numbers' => isset($employee) ? $employee->phone_numbers : [],
     ])
 

@@ -11,7 +11,7 @@ class FoodPreference extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public array $fillables = [
+    protected $fillable = [
         'name'
     ];
 
